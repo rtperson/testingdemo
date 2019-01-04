@@ -1,4 +1,4 @@
-package com.accenture.testingdemo;
+package com.chyernobog.testingdemo;
 
 public class FizzBuzz {
 
