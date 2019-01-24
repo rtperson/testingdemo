@@ -13,7 +13,7 @@ public class FizzBuzz {
         }
     }
 
-    private void runFizzBuzz() {
+    public void runFizzBuzz() {
         for (int i = 1; i <= 100; i++) {
             if ( i % 5 == 0) {
                 applyBuzz(i);
