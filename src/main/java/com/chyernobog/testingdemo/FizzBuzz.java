@@ -2,6 +2,9 @@ package com.chyernobog.testingdemo;
 
 public class FizzBuzz {
 
+    private static final String FIZZ = "Fizz";
+    private static final String BUZZ = "Buzz";
+
     public static void main(String[] args) {
         FizzBuzz fb = new FizzBuzz();
         fb.runFizzBuzz();
@@ -10,31 +13,27 @@ public class FizzBuzz {
         }
     }
 
-    public void runFizzBuzz() {
-        countToOneHundred();
-        applyFizz();
-        applyBuzz();
-    }
-
-    private void countToOneHundred() {
+    private void runFizzBuzz() {
         for (int i = 1; i <= 100; i++) {
-            count[i] = String.valueOf(i);
-        }
-    }
-
-    private void applyFizz() {
-        for (int i = 3; i <= 100; i+= 3) {
-            count[i] = "Fizz";
-        }
-    }
-
-    private void applyBuzz() {
-        for (int i = 5; i <= 100; i+= 5) {
-            if (count[i].equals("Fizz")) {
-                count[i] = count[i].concat("Buzz");
+            if ( i % 5 == 0) {
+                applyBuzz(i);
+            } else if ( i % 3 == 0) {
+                applyFizz(i);
             } else {
-                count[i] = "Buzz";
+                count[i] = String.valueOf(i);
             }
+        }
+    }
+
+    private void applyFizz(int i) {
+        count[i] = FIZZ;
+    }
+
+    private void applyBuzz(int i) {
+        if ( i % 3 == 0 ) {
+            count[i] = FIZZ.concat(BUZZ);
+        } else {
+            count[i] = BUZZ;
         }
     }
 
