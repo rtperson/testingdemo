@@ -8,6 +8,10 @@
     <artifactId>testingdemo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -74,6 +78,30 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.5.2</version>
+                <configuration>
+                    <targetClasses>
+                        <param>com.chyernobog.testingdemo*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>com.chyernobog.testingdemo*</param>
+                    </targetTests>
+                    <environmentVariables>
+                        <environment>test</environment>
+                    </environmentVariables>
+                    <verbose>true</verbose>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-junit5-plugin</artifactId>
+                        <version>0.12</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
